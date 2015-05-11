@@ -1,19 +1,24 @@
+/* global require */
+/* jshint strict: false */
+
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
-var rename = require("gulp-rename");
+var rename = require('gulp-rename');
 var stylus = require('gulp-stylus');
 var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
 var livereload = require('gulp-livereload');
+var del = require('del');
 
 var paths = {
 	stylus: [
 		'src/**/*.styl'
 	],
 	css: [
+		'bower_components/normalize.css/normalize.css',
 		'src/**/*.css'
 	],
 	scripts: [
@@ -30,11 +35,11 @@ gulp.task('clean', function (cb) {
 	del(['build'], cb);
 });
 
-gulp.task('stylus', [], function () {
+gulp.task('stylus', function () {
 	return gulp.src(paths.stylus)
 		.pipe(stylus())
 		.pipe(rename(function (path) {
-			path.extname = ".css"
+			path.extname = '.css';
 		}))
 		.pipe(gulp.dest('src'));
 });
@@ -49,7 +54,6 @@ gulp.task('css', ['clean'], function () {
 		.pipe(gulp.dest('build'))
 		.pipe(livereload());
 });
-
 
 gulp.task('scripts', ['clean'], function () {
 	return gulp.src(paths.scripts)
@@ -69,9 +73,10 @@ gulp.task('images', ['clean'], function () {
 });
 
 gulp.task('watch', function () {
+	livereload.listen();
 	gulp.watch(paths.stylus, ['stylus', 'css']);
 	gulp.watch(paths.scripts, ['scripts']);
 	gulp.watch(paths.images, ['images']);
 });
 
-gulp.task('default', ['watch', 'scripts', 'images']);
+gulp.task('default', ['stylus', 'css', 'scripts', 'images']);

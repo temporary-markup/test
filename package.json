@@ -7,7 +7,7 @@
     "autoprefixer-core": "",
     "gulp": "",
     "stylus": "",
-
+    "del": "",
     "gulp-autoprefixer": "",
     "gulp-concat": "",
     "gulp-csso": "",
