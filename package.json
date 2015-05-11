@@ -3,10 +3,12 @@
   "name": "slider",
   "version": "0.0.1",
   "devDependencies": {
+    "bower": "",
     "autoprefixer-core": "",
     "gulp": "",
     "stylus": "",
 
+    "gulp-autoprefixer": "",
     "gulp-concat": "",
     "gulp-csso": "",
     "gulp-imagemin": "",

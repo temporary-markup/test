@@ -5,6 +5,7 @@ var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require("gulp-rename");
 var stylus = require('gulp-stylus');
+var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
 
 var paths = {
@@ -39,6 +40,9 @@ gulp.task('stylus', [], function () {
 
 gulp.task('css', ['clean'], function () {
 	return gulp.src(paths.css)
+		.pipe(autoprefixer({
+			cascade: false
+		}))
 		.pipe(csso())
 		.pipe(concat('all.min.css'))
 		.pipe(gulp.dest('build'));
