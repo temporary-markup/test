@@ -14,12 +14,11 @@ var livereload = require('gulp-livereload');
 var del = require('del');
 
 var paths = {
-	stylus: [
-		'src/**/*.styl'
-	],
+	stylus: ['src/**/*.styl', '!src/stylus-libs/*'],
 	css: [
 		'bower_components/normalize.css/normalize.css',
-		'src/**/*.css'
+		'src/main/main.styl.css'
+		//'src/**/*.css'
 	],
 	scripts: [
 		'src/**/*.js'
@@ -37,9 +36,14 @@ gulp.task('clean', function (cb) {
 
 gulp.task('stylus', function () {
 	return gulp.src(paths.stylus)
-		.pipe(stylus())
+		.pipe(stylus({
+			paths: ['src/stylus-libs'],
+			import: [
+				'variables'
+			]
+		}))
 		.pipe(rename(function (path) {
-			path.extname = '.css';
+			path.extname = '.styl.css';
 		}))
 		.pipe(gulp.dest('src'));
 });
@@ -49,7 +53,7 @@ gulp.task('css', ['clean'], function () {
 		.pipe(autoprefixer({
 			cascade: false
 		}))
-		.pipe(csso())
+		//.pipe(csso())
 		.pipe(concat('all.min.css'))
 		.pipe(gulp.dest('build'))
 		.pipe(livereload());
