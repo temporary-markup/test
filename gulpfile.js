@@ -19,7 +19,9 @@ var paths = {
 	css: [
 		'bower_components/normalize.css/normalize.css',
 		'src/main/main.styl.css',
-		'src/fonts/fonts.styl.css'
+		'src/fonts/fonts.styl.css',
+		'src/intro/intro.styl.css',
+		'src/layout/layout.styl.css'
 		//'src/**/*.css'
 	],
 	scripts: [
