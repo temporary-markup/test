@@ -12,6 +12,7 @@
     "gulp-concat": "",
     "gulp-csso": "",
     "gulp-imagemin": "",
+    "gulp-livereload": "",
     "gulp-rename": "",
     "gulp-sourcemaps": "",
     "gulp-stylus": "",

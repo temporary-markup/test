@@ -7,6 +7,7 @@ var rename = require("gulp-rename");
 var stylus = require('gulp-stylus');
 var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
+var livereload = require('gulp-livereload');
 
 var paths = {
 	stylus: [
@@ -45,7 +46,8 @@ gulp.task('css', ['clean'], function () {
 		}))
 		.pipe(csso())
 		.pipe(concat('all.min.css'))
-		.pipe(gulp.dest('build'));
+		.pipe(gulp.dest('build'))
+		.pipe(livereload());
 });
 
 
@@ -55,13 +57,15 @@ gulp.task('scripts', ['clean'], function () {
 		.pipe(uglify())
 		.pipe(concat('all.min.js'))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('build'));
+		.pipe(gulp.dest('build'))
+		.pipe(livereload());
 });
 
 gulp.task('images', ['clean'], function () {
 	return gulp.src(paths.images)
 		.pipe(imagemin({optimizationLevel: 5}))
-		.pipe(gulp.dest('build'));
+		.pipe(gulp.dest('build'))
+		.pipe(livereload());
 });
 
 gulp.task('watch', function () {
