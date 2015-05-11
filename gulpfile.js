@@ -8,6 +8,7 @@ var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var stylus = require('gulp-stylus');
+var base64 = require('gulp-base64');
 var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
 var livereload = require('gulp-livereload');
@@ -17,7 +18,8 @@ var paths = {
 	stylus: ['src/**/*.styl', '!src/stylus-libs/*'],
 	css: [
 		'bower_components/normalize.css/normalize.css',
-		'src/main/main.styl.css'
+		'src/main/main.styl.css',
+		'src/fonts/fonts.styl.css'
 		//'src/**/*.css'
 	],
 	scripts: [
@@ -37,6 +39,8 @@ gulp.task('clean', function (cb) {
 gulp.task('stylus', function () {
 	return gulp.src(paths.stylus)
 		.pipe(stylus({
+			// stylus accord does not support urlfunc
+			// urlfunc: 'embedurl',
 			paths: ['src/stylus-libs'],
 			import: [
 				'variables'
@@ -50,6 +54,16 @@ gulp.task('stylus', function () {
 
 gulp.task('css', ['clean'], function () {
 	return gulp.src(paths.css)
+		.pipe(base64({
+			baseDir: 'src',
+			extensions: ['woff'],
+			maxImageSize: 64 * 1024
+		}))
+		.pipe(base64({
+			baseDir: 'src',
+			extensions: ['png'],
+			maxImageSize: 8 * 1024
+		}))
 		.pipe(autoprefixer({
 			cascade: false
 		}))
