@@ -11,10 +11,32 @@
 <body>
 
 <main>
-	<div  class="layout__center">
-		<h1 class="intro__h1"><span class="show-mobile">Our </span>experience</h1>
-		<h3 class="intro__h3">This stuff has been specified in components on commercial and military aircraft for more than 25 years</h3>
-		<p class="intro__p">We know the best results come when we partner with manufacturers and use our expertise to help take components and systems from inception to production and to market.</p>
+	<section class="intro">
+		<div class="layout__center">
+			<h1 class="intro__h1"><span class="show-mobile">Our </span>experience</h1>
+
+			<h3 class="intro__h3">This stuff has been specified in components on commercial and military aircraft for
+				more than 25 years</h3>
+
+			<p class="intro__p">We know the best results come when we partner with manufacturers and use our expertise
+				to help take components and systems from inception to production and to market.</p>
+		</div>
+	</section>
+
+	<div class="slider">
+		<div class="slider-line"></div>
+		<div class="slider-svg-photo__wrap">
+			<svg class="slider-svg-photo" width="290" height="181" style="top: -90px;">
+				<defs>
+					<clipPath id="clip-rhombus">
+						<polygon points="15 90,145 15,275 90,145 151"></polygon>
+					</clipPath>
+				</defs>
+				<polygon points="0 90,145 3,290 90,145 163" fill="#027db4"></polygon>
+				<image class='slider-svg-photo__image' x="15" y="15" width="260" height="151"
+				       xlink:href="images/photo-2x.jpg" clip-path="url(#clip-rhombus)"></image>
+			</svg>
+		</div>
 	</div>
 </main>
 </body>

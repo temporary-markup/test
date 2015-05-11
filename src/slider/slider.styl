@@ -1,0 +1,21 @@
+$class = slider
+
+.{slider}
+	background $bg_bottom_color
+	position relative
+
+	&-svg-photo
+		margin 0 auto
+		position relative
+
+		&__wrap
+			text-align center
+
+	&-line
+		position absolute
+		top -15px
+		left 0
+		right 0
+		height 40px
+		background $bg_top_color url(slider/slider-line.svg)
+		background-size 100% 100%

@@ -21,7 +21,8 @@ var paths = {
 		'src/main/main.styl.css',
 		'src/fonts/fonts.styl.css',
 		'src/intro/intro.styl.css',
-		'src/layout/layout.styl.css'
+		'src/layout/layout.styl.css',
+		'src/slider/slider.styl.css'
 		//'src/**/*.css'
 	],
 	scripts: [
@@ -54,7 +55,7 @@ gulp.task('stylus', function () {
 		.pipe(gulp.dest('src'));
 });
 
-gulp.task('css', ['clean'], function () {
+gulp.task('css', ['stylus'], function () {
 	return gulp.src(paths.css)
 		.pipe(base64({
 			baseDir: 'src',
@@ -63,7 +64,7 @@ gulp.task('css', ['clean'], function () {
 		}))
 		.pipe(base64({
 			baseDir: 'src',
-			extensions: ['png'],
+			extensions: ['png', 'svg'],
 			maxImageSize: 8 * 1024
 		}))
 		.pipe(autoprefixer({
@@ -75,7 +76,7 @@ gulp.task('css', ['clean'], function () {
 		.pipe(livereload());
 });
 
-gulp.task('scripts', ['clean'], function () {
+gulp.task('scripts', function () {
 	return gulp.src(paths.scripts)
 		.pipe(sourcemaps.init())
 		.pipe(uglify())
@@ -85,7 +86,7 @@ gulp.task('scripts', ['clean'], function () {
 		.pipe(livereload());
 });
 
-gulp.task('images', ['clean'], function () {
+gulp.task('images', function () {
 	return gulp.src(paths.images)
 		.pipe(imagemin({optimizationLevel: 5}))
 		.pipe(gulp.dest('build'))
@@ -94,9 +95,9 @@ gulp.task('images', ['clean'], function () {
 
 gulp.task('watch', function () {
 	livereload.listen();
-	gulp.watch(paths.stylus, ['stylus', 'css']);
+	gulp.watch(paths.stylus, ['css']);
 	gulp.watch(paths.scripts, ['scripts']);
-	gulp.watch(paths.images, ['images']);
+	gulp.watch(paths.images, ['images', 'css']);
 });
 
-gulp.task('default', ['stylus', 'css', 'scripts', 'images']);
+gulp.task('default', ['clean', 'css', 'scripts', 'images']);
