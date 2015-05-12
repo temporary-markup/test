@@ -12,9 +12,11 @@ $class = expander
 
 
 		.{$class}_mod_visible &
-			overflow auto
 			height auto
 			opacity 1
+
+		&__container
+			overflow hidden
 
 	&__icon
 		margin 2em auto
@@ -23,3 +25,6 @@ $class = expander
 		height 32px
 		background url(expander/expander__icon.png)
 		cursor pointer
+
+		.{$class}_mod_visible &
+			display none

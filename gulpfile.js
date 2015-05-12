@@ -28,7 +28,9 @@ var paths = {
 		//'src/**/*.css'
 	],
 	scripts: [
-		'src/**/*.js'
+		'bower_components/jquery/dist/jquery.js',
+		'src/expander/expander.js'
+		//'src/**/*.js'
 	],
 	images: [
 		'src/**/*.jpg',
