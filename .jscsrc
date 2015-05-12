@@ -1,0 +1,7 @@
+{
+  "preset": "google",
+  "validateIndentation": "\t",
+  "disallowSpacesInAnonymousFunctionExpression": null,
+  "disallowMultipleVarDecl": null,
+  "excludeFiles": ["node_modules/**"]
+}

@@ -1,0 +1,26 @@
+$class = layout
+
+.{$class}__center
+	width 800px
+	margin 0 auto
+	text-align center
+
+	&_mod_fat
+		width 840px
+
+	@media all and (min-width: $media_size_mobile) and (max-width: $media_size_large)
+		&
+			width 80%
+
+			&_mod_fat
+				width 85%
+
+	@media all and (max-width: $media_size_mobile)
+		&
+			width 100%
+			box-sizing border-box
+			padding 0 20px
+			text-align left
+
+			&_mod_fat
+				width 100%

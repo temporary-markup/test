@@ -1,0 +1,116 @@
+$class = intro
+
+.{$class}
+	padding-bottom 165px
+	margin-bottom -90px
+	background $bg_top_color
+	font-family 'ProximaNova Light', sans-serif
+
+	@media all and (max-width: $media_size_mobile)
+		&
+			padding-bottom 133px
+
+	&__nav
+		padding 20px
+		position relative
+		background $bg_nav
+		font-family 'ProximaNova Regular', sans-serif
+		font-size 18px
+		line-height 1.2
+
+		&:after
+			content '—'
+			position absolute
+			right 20px
+
+		@media all and (min-width: $media_size_mobile)
+			&
+				display none
+
+	&__h1
+		padding-top 100px
+		margin 0
+		font-family 'ProximaNova Bold', sans-serif
+		font-size 50px
+		line-height 1
+		font-weight bold
+		text-transform uppercase
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				padding-top 30px
+				font-size 21px
+				line-height 1.5
+
+	&__h3
+		margin .5em auto 0
+		font-family 'ProximaNova Regular', sans-serif
+		font-size 25px
+		line-height 1.2
+		max-width 610px
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				max-width 100%
+				font-size 18px
+
+	&__p
+		margin 2em 0 0
+		font-family 'ProximaNova Light', sans-serif
+		font-size 18px
+		line-height 1.5
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				max-width 100%
+				font-size 15px
+
+	&__quote
+		margin 0
+		font-family 'ProximaNova RegItalic', sans-serif
+		font-size 25px
+		line-height 1.2
+		position relative
+
+		&:before,
+		&:after
+			content ''
+			width 45px
+			height 44px
+			display block
+			position absolute
+			top -60px
+
+		&:before
+			background url('intro/intro__quote__start.min.svg')
+			left -5px
+
+		&:after
+			background url('intro/intro__quote__end.min.svg')
+			right 5px
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				font-size 18px
+
+	&__author
+		margin 2em auto
+		font-family 'ProximaNova Regular', sans-serif
+		font-size 16px
+		line-height 1.5
+
+		& strong
+			font-family 'ProximaNova Semibold'
+			font-weight bold
+
+		&:before,
+		&:after
+			content '—'
+
+			@media all and (max-width: $media_size_mobile)
+				&
+					display none
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				font-size 13px

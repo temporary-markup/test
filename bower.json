@@ -1,0 +1,10 @@
+{
+  "name": "slider",
+  "version": "0.0.1",
+  "dependencies": {
+    "normalize.css": "",
+    "jquery": "~2.1.4",
+    "fotorama": "~4.6.4"
+  },
+  "devDependencies": {}
+}

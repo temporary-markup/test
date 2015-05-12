@@ -1,0 +1,25 @@
+{
+  "author": "nex2hex",
+  "name": "slider",
+  "version": "0.0.1",
+  "devDependencies": {
+    "bower": "",
+    "autoprefixer-core": "",
+    "gulp": "",
+    "stylus": "",
+    "del": "",
+    "connect": "",
+    "serve-static": "",
+    "gulp-autoprefixer": "",
+    "gulp-base64": "",
+    "gulp-concat": "",
+    "gulp-csso": "",
+    "gulp-imagemin": "",
+    "gulp-livereload": "",
+    "gulp-rename": "",
+    "gulp-sourcemaps": "",
+    "gulp-stylus": "",
+    "gulp-svgmin": "",
+    "gulp-uglify": ""
+  }
+}

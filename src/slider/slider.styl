@@ -1,0 +1,80 @@
+$class = slider
+
+.{slider}
+	position relative
+
+	&-svg-photo
+		margin 0 auto
+		position relative
+
+		&__wrap
+			text-align center
+			height 0
+
+	&-line
+		position absolute
+		top 80px
+		left 0
+		right 0
+		height 40px
+		background $bg_bottom_color url(slider/slider-line.svg)
+		background-size 100% 100%
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				display none
+
+	&__content
+		padding-top 230px
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				padding-top 180px
+
+	&__item
+		position relative
+
+	& .fotorama__arr--next
+		width 59px
+		height 79px
+		right 0
+		background 0 0 url(slider/slider__right.png) no-repeat
+		transform none !important
+
+	& .fotorama__arr--prev
+		width 59px
+		height 79px
+		left 0
+		background 0 0 url(slider/slider__left.png) no-repeat
+		transform none !important
+
+	@media all and (min-width: $media_size_mobile) and (max-width: $media_size_large)
+		& .fotorama__arr--next,
+		& .fotorama__arr--prev
+			zoom 50%
+
+	@media all and (max-width: $media_size_mobile)
+		& .fotorama__arr--next,
+		& .fotorama__arr--prev
+			display none !important
+
+	& .fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__arr
+		opacity 1
+
+		&.fotorama__arr--disabled
+			opacity .1
+
+	& .fotorama__dot
+		width 10px
+		height 10px
+		border-radius 12px
+		background $bg_top_color
+		border none
+
+	& .fotorama__nav__frame.fotorama__active .fotorama__dot
+		background #fff
+		width 10px
+		height 10px
+
+	& .fotorama__nav-wrap
+		padding 2em 0
