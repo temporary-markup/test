@@ -21,6 +21,7 @@ var paths = {
 		'bower_components/normalize.css/normalize.css',
 		'src/main/main.styl.css',
 		'src/fonts/fonts.styl.css',
+		'src/expander/expander.styl.css',
 		'src/intro/intro.styl.css',
 		'src/layout/layout.styl.css',
 		'src/slider/slider.styl.css'
@@ -65,7 +66,7 @@ gulp.task('css', ['stylus'], function () {
 		}))
 		.pipe(base64({
 			baseDir: 'src',
-			extensions: ['png', 'svg'],
+			extensions: ['png', 'svg', 'min'],
 			maxImageSize: 8 * 1024
 		}))
 		.pipe(autoprefixer({
@@ -95,10 +96,10 @@ gulp.task('images', function () {
 });
 
 gulp.task('svg', function () {
-	return gulp.src(['src/**/*.svg'])
+	return gulp.src(['src/**/*.svg', '!src/**/*.min.svg'])
 		.pipe(svgmin())
 		.pipe(rename(function (path) {
-			path.extname = '.svg.min';
+			path.extname = '.min.svg';
 		}))
 		.pipe(gulp.dest('src'));
 });

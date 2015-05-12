@@ -1,0 +1,25 @@
+$class = expander
+
+.{$class}
+
+	&__content
+		overflow hidden
+		height 0
+		opacity 0
+		transition-property opacity, height
+		transition-timing-function cubic-bezier(.1, 0, .25, 1)
+		transition-duration 200ms
+
+
+		.{$class}_mod_visible &
+			overflow auto
+			height auto
+			opacity 1
+
+	&__icon
+		margin 2em auto
+		display block
+		width 50px
+		height 32px
+		background url(expander/expander__icon.png)
+		cursor pointer

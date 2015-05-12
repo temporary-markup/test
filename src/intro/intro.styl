@@ -3,6 +3,7 @@ $class = intro
 .{$class}
 	padding 100px 0 165px
 	background $bg_top_color
+	font-family 'ProximaNova Light', sans-serif
 
 	&__h1
 		margin 0
@@ -26,14 +27,40 @@ $class = intro
 		line-height 1.2
 
 	&__quote
-		font-family 'ProximaNova SemiboldIt', sans-serif
+		margin 0
+		font-family 'ProximaNova RegItalic', sans-serif
 		font-size 25px
 		line-height 1.2
 		position relative
 
-		&::before,
-		&::after
+
+		&:before,
+		&:after
 			content ''
+			width 45px
+			height 44px
 			display block
 			position absolute
 			top -45px
+
+		&:before
+			background url('intro/intro__quote__start.min.svg')
+			left -5px
+
+		&:after
+			background url('intro/intro__quote__end.min.svg')
+			right 5px
+
+	&__author
+		margin 2em auto
+		font-family 'ProximaNova Regular', sans-serif
+		font-size 16px
+		line-height 1.5
+
+		& strong
+			font-family 'ProximaNova Semibold'
+			font-weight bold
+
+		&:before,
+		&:after
+			content '—'
