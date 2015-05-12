@@ -86,7 +86,7 @@ gulp.task('css', ['stylus'], function () {
 gulp.task('scripts', function () {
 	return gulp.src(paths.scripts)
 		.pipe(sourcemaps.init())
-		.pipe(uglify())
+		//.pipe(uglify())
 		.pipe(concat('all.min.js'))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('build'))
