@@ -5,7 +5,15 @@
 		setTimeout(function () {
 			$('.expander__icon').on('click.expander', function (e) {
 				var $e = $(this).closest('.expander'),
-					$content = $e.find('.expander__content');
+					$content = $e.find('.expander__content'),
+					containerHeight = $e.find('.expander__content__container').height(),
+					diffHeight = containerHeight - $(this).height();
+
+				// very bad
+				$(this).closest('.slider').triggerHandler('slider:resize', [{
+					diffHeight: diffHeight,
+					duration: 200
+				}]);
 
 				$content.css({
 					height: $e.find('.expander__content__container').height()
