@@ -11,6 +11,7 @@ var stylus = require('gulp-stylus');
 var base64 = require('gulp-base64');
 var autoprefixer = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
+var svgmin = require('gulp-svgmin');
 var livereload = require('gulp-livereload');
 var del = require('del');
 
@@ -39,7 +40,7 @@ gulp.task('clean', function (cb) {
 	del(['build'], cb);
 });
 
-gulp.task('stylus', function () {
+gulp.task('stylus', ['svg'], function () {
 	return gulp.src(paths.stylus)
 		.pipe(stylus({
 			// stylus accord does not support urlfunc
@@ -91,6 +92,15 @@ gulp.task('images', function () {
 		.pipe(imagemin({optimizationLevel: 5}))
 		.pipe(gulp.dest('build'))
 		.pipe(livereload());
+});
+
+gulp.task('svg', function () {
+	return gulp.src(['src/**/*.svg'])
+		.pipe(svgmin())
+		.pipe(rename(function (path) {
+			path.extname = '.svg.min';
+		}))
+		.pipe(gulp.dest('src'));
 });
 
 gulp.task('watch', function () {
