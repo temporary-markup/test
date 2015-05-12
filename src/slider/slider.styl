@@ -20,6 +20,10 @@ $class = slider
 		background $bg_bottom_color url(slider/slider-line.svg)
 		background-size 100% 100%
 
+		@media all and (max-width: $media_size_mobile)
+			&
+				display none
+
 	&__content
 		padding-top 230px
 
@@ -39,6 +43,16 @@ $class = slider
 		left 0
 		background 0 0 url(slider/slider__left.png) no-repeat
 		transform none !important
+
+	@media all and (min-width: $media_size_mobile) and (max-width: $media_size_large)
+		& .fotorama__arr--next,
+		& .fotorama__arr--prev
+			zoom 50%
+
+	@media all and (max-width: $media_size_mobile)
+		& .fotorama__arr--next,
+		& .fotorama__arr--prev
+			display none !important
 
 	& .fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__arr
 		opacity 1

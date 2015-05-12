@@ -18,6 +18,12 @@ $class = expander
 		&__container
 			overflow hidden
 
+		@media all and (max-width: $media_size_mobile)
+			&
+				overflow auto
+				height auto
+				opacity 1
+
 	&__icon
 		margin 2em auto
 		display block
@@ -28,3 +34,7 @@ $class = expander
 
 		.{$class}_mod_visible &
 			display none
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				display none
