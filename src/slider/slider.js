@@ -16,8 +16,7 @@
 				margin: 0,
 				allowfullscreen: false,
 				click: false,
-				loop: true,
-				autoplay: true
+				loop: true
 			});
 		}).on('slider:resize', function (e, options) {
 			var $fotorama = $(this).data('fotorama');
