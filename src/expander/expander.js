@@ -1,28 +1,28 @@
 (function ($, window) {
 	'use strict';
 	$(function () {
-		// after fotorama init
-		setTimeout(function () {
-			$('.expander__icon').on('click.expander', function (e) {
-				var $e = $(this).closest('.expander'),
-					$content = $e.find('.expander__content'),
-					containerHeight = $e.find('.expander__content__container').height(),
-					diffHeight = containerHeight - $(this).height();
+		if (!$('.expander').length) {
+			return;
+		}
 
-				// very bad
-				$(this).closest('.slider').triggerHandler('slider:resize', [{
-					diffHeight: diffHeight,
-					duration: 200
-				}]);
+		// fotorama remove html with all handlers, attach all events to dom
+		$(window.document).on('click.expander', '.expander__icon', function (e) {
+			var $e = $(this).closest('.expander'),
+				$content = $e.find('.expander__content'),
+				containerHeight = $e.find('.expander__content__container').height(),
+				diffHeight = containerHeight - $(this).height();
 
-				$content.css({
-					height: $e.find('.expander__content__container').height()
-				});
-				$e.addClass('expander_mod_visible');
+			// very bad
+			$(this).closest('.slider').triggerHandler('slider:resize', [{
+				diffHeight: diffHeight,
+				duration: 200
+			}]);
+
+			$content.css({
+				height: $e.find('.expander__content__container').height()
 			});
-		}, 500);
-
-		$('.expander__content').on('transitionend.expander', function () {
+			$e.addClass('expander_mod_visible');
+		}).on('transitionend.expander', '.expander__content', function () {
 			$(this).removeAttr('style');
 		});
 	});

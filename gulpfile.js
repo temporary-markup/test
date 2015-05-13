@@ -19,7 +19,7 @@ var paths = {
 	stylus: ['src/**/*.styl', '!src/stylus-libs/*'],
 	css: [
 		'bower_components/normalize.css/normalize.css',
-		'bower_components/fotorama/fotorama.css',
+		'src/fotorama/fotorama.dev.css',
 		'src/main/main.styl.css',
 		'src/fonts/fonts.styl.css',
 		'src/expander/expander.styl.css',
@@ -30,7 +30,7 @@ var paths = {
 	],
 	scripts: [
 		'bower_components/jquery/dist/jquery.js',
-		'bower_components/fotorama/fotorama.js',
+		'src/fotorama/fotorama.dev.js',
 		'src/expander/expander.js',
 		'src/slider/slider.js'
 		//'src/**/*.js'
