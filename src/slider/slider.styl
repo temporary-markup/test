@@ -78,3 +78,22 @@ $class = slider
 
 	& .fotorama__nav-wrap
 		padding 2em 0
+
+	&_mod_space
+		background transparent
+
+		& .{$class}__content
+			height 300px
+
+	&-line2
+		position absolute
+		top 0
+		left 0
+		right 0
+		height 50px
+		background transparent url(slider/slider-line2.svg)
+		background-size 50px 50px
+
+		@media all and (max-width: $media_size_mobile)
+			&
+				display none

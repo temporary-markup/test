@@ -15,7 +15,8 @@
 				height: getMaxItemsHeight($(this).find('.slider__item')),
 				margin: 0,
 				allowfullscreen: false,
-				click: false
+				click: false,
+				loop: true
 			});
 		}).on('slider:resize', function (e, options) {
 			var $fotorama = $(this).data('fotorama');
